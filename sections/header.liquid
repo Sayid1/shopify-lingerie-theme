@@ -732,13 +732,14 @@
 {%- endif -%}
 
 {% javascript %}
+      console.log('777')
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
     }
 
     connectedCallback() {
-      console.log('444')
+      console.log('666')
       this.header = document.querySelector('.section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
