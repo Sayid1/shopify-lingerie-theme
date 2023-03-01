@@ -478,18 +478,23 @@ class ModalDialog extends HTMLElement {
   constructor() {
     super();
     const success=  this.querySelector('.note--success')
-    // const success = this.getAttribute('data-success');
-    console.log('success', success)
     const sessionKey = this.getAttribute('data-session-key');
     const newsletterAppeared = (sessionStorage.getItem(sessionKey) === 'true')
-    if (!newsletterAppeared || success) {
+    const newsletterAppearedOpen = (sessionStorage.getItem(sessionKey + 'open') === 'true')
+    if (!newsletterAppearedOpen && (!newsletterAppeared || success)) {
       const autoOpen = this.getAttribute('data-default');
       let delay = this.getAttribute('data-delay') || 0;
-      if (success) delay = 0;
-      if (autoOpen === 'open') {
-        setTimeout(() => this.show(), parseInt(delay));
+      if (success) {
+        delay = 0;
+        sessionStorage.setItem(sessionKey + 'open', true);
       }
-      sessionStorage.setItem(sessionKey, true);
+      if (autoOpen === 'open') {
+        setTimeout(() => {
+          sessionStorage.setItem(sessionKey, true);
+          this.show()
+        }, parseInt(delay));
+      }
+      
     }
 
     this.addEventListener('showss', (event) => {
