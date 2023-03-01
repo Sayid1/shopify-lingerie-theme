@@ -1,0 +1,412 @@
+@keyframes overlay-on {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.6;
+    }
+}
+
+@keyframes overlay-off {
+    0% {
+        opacity: 0.6;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes modal-open {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modal-closing {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .modal__inner {
+        margin: 40px;
+        max-width: calc(100% - 80px);
+    }
+
+    .medium-up--text-center {
+        text-align: center !important;
+    }
+
+    .modal--square .modal__centered-content {
+        padding: 45px;
+        max-height: 90vh;
+        max-width: 1200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .newsletter__input-group {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+}
+
+.modal__centered-content.newsletter--has-image {
+    padding: 0
+}
+
+@media only screen and (max-width:768px) {
+
+    .modal__centered-content.newsletter--has-image {
+        padding: 0
+    }
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup {
+    display: flex;
+    max-width: 800px;
+    min-width: 650px
+}
+
+@media only screen and (max-width:768px) {
+
+    .modal__centered-content.newsletter--has-image .newsletter-popup {
+        max-width: none;
+        min-width: 0
+    }
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup.newsletter-popup--image-reversed {
+    flex-direction: row-reverse;
+}
+
+.modal__centered-content.newsletter--has-image .form__submit--large {
+    display: none;
+}
+
+.modal__centered-content.newsletter--has-image .form__submit--small {
+    display: block;
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup__image {
+    width: 50%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+@media only screen and (max-width:768px) {
+
+    .modal__centered-content.newsletter--has-image .newsletter-popup__image {
+        display: none
+    }
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup__content {
+    padding: 40px;
+    width: 50%
+}
+
+@media only screen and (max-width:768px) {
+
+    .modal__centered-content.newsletter--has-image .newsletter-popup__content {
+        padding: 0 0 20px;
+        width: 100%
+    }
+}
+
+
+
+
+.modal__close {
+    align-items: center;
+    background-color: rgb(var(--color-background));
+    border-radius: 50%;
+    border: 0.1rem solid rgba(var(--color-foreground), .1);
+    color: rgba(var(--color-foreground), .55);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0 auto;
+    padding: 1.2rem;
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 4rem;
+    height: 4rem;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+.modal__close {
+    padding: 5px;
+    border: none;
+}
+}
+.modal-email-dialog {
+    box-sizing: border-box;
+    left: 0;
+    margin: 0 auto;
+    opacity: 1;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    display: none;
+}
+
+.modal-email-dialog[open] {
+    display: flex !important;
+    overflow: hidden;
+    z-index: 101;
+
+}
+
+/* 
+.modal-email-dialog[open]::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6;
+    animation: overlay-on .5s forwards;
+    cursor: pointer;
+} */
+.modal-email-dialog[open] .modal__inner {
+    animation: modal-open .5s forwards;
+}
+
+.modal__inner {
+    transform-style: preserve-3d;
+    flex: 0 1 auto;
+    margin: 15px;
+    max-width: calc(100% - 15px);
+    display: flex;
+    align-items: center;
+    z-index: 201;
+    outline: none;
+    /* height: 300px; */
+}
+
+.modal--square .modal__inner {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 15px 45px #0000001a;
+}
+
+.modal__centered {
+    position: relative;
+    flex: 0 1 auto;
+    min-width: 1px;
+    max-width: 100%;
+}
+
+.modal--square .modal__centered-content {
+    max-height: 80vh;
+    padding: 22.5px;
+    min-width: 200px;
+    min-height: 200px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup.newsletter-popup--image-reversed {
+    flex-direction: row-reverse;
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup {
+    display: flex;
+    max-width: 800px;
+    min-width: 650px;
+}
+
+.newsletter {
+    margin: 0 auto;
+    max-width: 520px;
+    text-align: center;
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup__image {
+    width: 50%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal__centered-content.newsletter--has-image .newsletter-popup__content {
+    padding: 40px;
+    width: 50%;
+}
+
+.modal__centered-content.newsletter--has-image {
+    padding: 0;
+}
+
+.rte {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.hidden-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.newsletter__input-group {
+    margin: 0 auto 20px;
+    max-width: 400px;
+}
+
+.newsletter__input-group {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group-btn {
+    flex: 0 1 auto;
+    margin: 0;
+    display: flex;
+}
+
+.input-group-field {
+    flex: 1 1 auto;
+    margin: 0;
+    min-width: 0;
+}
+
+.btn,
+.rte .btn,
+.shopify-payment-button .shopify-payment-button__button--unbranded,
+.spr-container .spr-button,
+.spr-container .spr-summary-actions a {
+    line-height: 1.42;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    display: inline-block;
+    padding: 11px 20px;
+    margin: 0;
+    width: auto;
+    min-width: 90px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #fff;
+    background: #000;
+}
+
+.input-group .input-group-btn:last-child .btn {
+    border-radius: 0 var(--buttonRadius) var(--buttonRadius) 0;
+
+    position: relative;
+    overflow: hidden;
+    transition: background .2s ease 0s;
+    color: #fff;
+
+}
+
+.input-group .input-group-btn:last-child .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 150%;
+    width: 200%;
+    height: 100%;
+    transform: skew(-20deg);
+    background-image: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, .25), transparent);
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    fill: currentColor;
+}
+@media only screen and (max-width:768px){
+
+    .modal__centered-content.newsletter--has-image{
+        padding:0
+    }
+      }
+    
+    .modal__centered-content.newsletter--has-image .newsletter-popup{
+        display:flex;
+        max-width:800px;
+        min-width:650px
+      }
+    
+    @media only screen and (max-width:768px){
+    
+    .modal__centered-content.newsletter--has-image .newsletter-popup{
+          max-width:none;
+          min-width:0
+      }
+        }
+
+        @media only screen and (max-width: 768px) {
+.modal__centered-content.newsletter--has-image .newsletter-popup__content {
+    padding: 0;
+    width: 100%;
+}
+        }
+
+        @media only screen and (max-width: 768px){
+.modal--mobile-friendly.modal--square .modal__centered-content {
+    padding: 40px 20px;
+}}
+.note {
+    border-radius: 0;
+    padding: 6px 12px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    text-align: left;
+}
+.note--success {
+    margin-top: 15px;
+    text-align: center;
+    color: #56ad6a;
+    background-color: #ecfef0;
+    border-color: #56ad6a;
+}

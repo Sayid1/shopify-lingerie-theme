@@ -406,7 +406,75 @@ body,
   font-weight: var(--font-body-weight);
 }
 
-h1,
+@media only screen and (min-width:769px){
+
+  .h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{
+      margin:0 0 15px
+  }
+    }
+  
+  .h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.h6 a,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
+      text-decoration:none;
+      font-weight:inherit;
+    }
+  
+  .h1,.h2,.h3,h1,h2,h3{
+    font-family:var(--typeHeaderPrimary),var(--typeHeaderFallback);
+    font-weight:var(--typeHeaderWeight);
+    letter-spacing:var(--typeHeaderSpacing);
+    line-height:var(--typeHeaderLineHeight);
+  }
+  
+  [data-type_header_capitalize=true] .h1,[data-type_header_capitalize=true] .h2,[data-type_header_capitalize=true] .h3,[data-type_header_capitalize=true] h1,[data-type_header_capitalize=true] h2,[data-type_header_capitalize=true] h3{
+      text-transform:uppercase;
+  }
+  
+  .h1,h1{
+    font-size:calc(var(--typeHeaderSize)*0.85);
+  }
+  
+  .h2,h2{
+    font-size:calc(var(--typeHeaderSize)*0.73);
+  }
+  
+  .h3,h3{
+    font-size:calc(var(--typeHeaderSize)*0.62);
+  }
+  
+  @media only screen and (min-width:769px){
+    .h1,h1{
+      font-size:var(--typeHeaderSize);
+    }
+  
+    .h2,h2{
+      font-size:calc(var(--typeHeaderSize)*0.85);
+    }
+  
+    .h3,h3{
+      font-size:calc(var(--typeHeaderSize)*0.65);
+    }
+  }
+  
+  .h4,h4{
+    text-transform:uppercase;
+    letter-spacing:0.3em;
+    font-size:0.8em;
+  }
+  
+  .h5,.h6,h5,h6{
+    text-transform:uppercase;
+    letter-spacing:0.3em;
+    font-size:0.8em;
+    margin-bottom:10px
+  }
+  
+  @media only screen and (max-width:768px){
+  
+  .h5,.h6,h5,h6{
+      margin-bottom:5px
+  }
+    }
+/* h1,
 h2,
 h3,
 h4,
@@ -431,6 +499,14 @@ h5,
   letter-spacing: .3em;
   font-size: .8em;
   margin-bottom: 10px;
+} */
+
+input, select, textarea {
+  border: 1px solid;
+  border-color: #e8e8e1;
+  max-width: 100%;
+  padding: 8px 10px;
+  border-radius: 0;
 }
 
 .hxl {
@@ -443,7 +519,7 @@ h5,
   }
 }
 
-.h0 {
+/* .h0 {
   font-size: calc(var(--font-heading-scale) * 4rem);
 }
 
@@ -513,8 +589,14 @@ h6,
   color: rgba(var(--color-foreground), 0.75);
   margin-block-start: 1.67em;
   margin-block-end: 1.67em;
-}
+} */
 
+.faux-select, body, button, input, select, textarea {
+  font-family: var(--font-body-family);
+  font-size: calc(var(--typeBaseSize)*.92);
+  letter-spacing: var(--typeBaseSpacing);
+  line-height: var(--typeBaseLineHeight);
+}
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);
@@ -625,7 +707,7 @@ table:not([class]) th {
   opacity: 0.7;
 }
 
-a:empty,
+/* a:empty,
 ul:empty,
 dl:empty,
 div:empty,
@@ -639,7 +721,7 @@ h4:empty,
 h5:empty,
 h6:empty {
   display: none;
-}
+} */
 
 .link,
 .customer a {
@@ -828,22 +910,27 @@ summary::-webkit-details-marker {
   }
 }
 
+
+
 /* base-focus */
 /*
   Focus ring - default (with offset)
 */
-
+input:active, input:focus, select:active, select:focus, textarea:active, textarea:focus {
+  border: 1px solid;
+  border-color: #000;
+}
 *:focus {
-  outline: 0;
+  outline: none;
   box-shadow: none;
 }
 
-*:focus-visible {
+/* *:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.3rem;
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
-}
+} */
 
 /* Fallback - for browsers that don't support :focus-visible, a fallback is set for :focus */
 .focused,
@@ -1863,7 +1950,7 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer .field input:not(:placeholder-shown),
 .customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
+  /* padding: 2.2rem 1.5rem 0.8rem 2rem; */
   margin: var(--inputs-border-width);
 }
 
@@ -2216,8 +2303,17 @@ product-info .loading-overlay:not(.hidden) ~ *,
 
 /* section-announcement-bar */
 .announcement-bar {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  color: rgb(var(--color-foreground));
+  padding: 10px 0;
+  background: rgb(var(--color-foreground));
+  font-size: calc(18px*.85);
+}
+
+.announcement-text {
+  font-weight: 700;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .9em;
 }
 
 .announcement-bar__link {

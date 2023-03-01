@@ -3,21 +3,7 @@
   "type": "header",
   "sections": {
     "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to ours store",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ]
+      "type": "announcement-bar"
     },
     "header": {
       "type": "header",
@@ -36,7 +22,7 @@
     }
   },
   "order": [
-    "announcement-bar",
-    "header"
+    "header",
+    "announcement-bar"
   ]
 }

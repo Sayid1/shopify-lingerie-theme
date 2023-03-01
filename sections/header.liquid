@@ -528,7 +528,7 @@
                   </header-menu>
                 {%- else -%}
                   <a href="{{ link.url }}" class="header__menu-item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
-                    <span class="header__menu-item-text">{{ link.title | escape }}2224</span>
+                    <span class="header__menu-item-text">{{ link.title | escape }}</span>
                   </a>
                 {%- endif -%}
               </li>
@@ -649,7 +649,9 @@
                           spellcheck="false"
                         {%- endif -%}
                       >
+                      {% comment  %}
                       <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                      {% endcomment %}
                       <input type="hidden" name="options[prefix]" value="last">
                       <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
                         <svg class="icon icon-close" aria-hidden="true" focusable="false">
@@ -736,10 +738,15 @@
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
+      console.log('555')
     }
 
     connectedCallback() {
+<<<<<<< HEAD
       console.log('666')
+=======
+      console.log('444')
+>>>>>>> 1a1daf0 (弹窗订阅)
       this.header = document.querySelector('.section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
@@ -785,7 +792,7 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+      console.log('scroll')
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {

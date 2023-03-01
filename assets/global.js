@@ -477,6 +477,20 @@ customElements.define('header-drawer', HeaderDrawer);
 class ModalDialog extends HTMLElement {
   constructor() {
     super();
+    const success = this.getAttribute('data-success');
+    console.log('success', success)
+    const sessionKey = this.getAttribute('data-session-key');
+    const newsletterAppeared = (sessionStorage.getItem(sessionKey) === 'true')
+    if (!newsletterAppeared || success) {
+      const autoOpen = this.getAttribute('data-default');
+      let delay = this.getAttribute('data-delay') || 0;
+      if (success) delay = 0;
+      if (autoOpen === 'open') {
+        setTimeout(() => this.show(), parseInt(delay));
+      }
+      sessionStorage.setItem(sessionKey, true);
+    }
+
     this.querySelector('[id^="ModalClose-"]').addEventListener(
       'click',
       this.hide.bind(this, false)
@@ -515,7 +529,8 @@ class ModalDialog extends HTMLElement {
     document.body.classList.remove('overflow-hidden');
     document.body.dispatchEvent(new CustomEvent('modalClosed'));
     this.removeAttribute('open');
-    removeTrapFocus(this.openedBy);
+    if (this.openedBy)
+      removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
   }
 }
