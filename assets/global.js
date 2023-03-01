@@ -477,7 +477,8 @@ customElements.define('header-drawer', HeaderDrawer);
 class ModalDialog extends HTMLElement {
   constructor() {
     super();
-    const success = this.getAttribute('data-success');
+    const success=  this.querySelector('.note--success')
+    // const success = this.getAttribute('data-success');
     console.log('success', success)
     const sessionKey = this.getAttribute('data-session-key');
     const newsletterAppeared = (sessionStorage.getItem(sessionKey) === 'true')
