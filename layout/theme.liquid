@@ -447,7 +447,7 @@
                       <script>
                         if (`{{ form.posted_successfully? }}`) {
                           const modal = document.querySelector('#PopupModal-email');
-                          modal.dispatchEvent(new Event('show'))
+                          modal.dispatchEvent(new CustomEvent('showss'))
                         }
                         </script>
                       {%- if form.posted_successfully? -%}

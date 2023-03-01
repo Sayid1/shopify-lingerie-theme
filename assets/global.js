@@ -491,7 +491,7 @@ class ModalDialog extends HTMLElement {
       sessionStorage.setItem(sessionKey, true);
     }
 
-    this.addEventListener('show', (event) => {
+    this.addEventListener('showss', (event) => {
       console.log('addEventListener')
       this.show()
     });
