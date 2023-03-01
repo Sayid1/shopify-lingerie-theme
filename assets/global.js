@@ -491,6 +491,11 @@ class ModalDialog extends HTMLElement {
       sessionStorage.setItem(sessionKey, true);
     }
 
+    this.addEventListener('show', (event) => {
+      console.log('addEventListener')
+      this.show()
+    });
+
     this.querySelector('[id^="ModalClose-"]').addEventListener(
       'click',
       this.hide.bind(this, false)
