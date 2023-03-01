@@ -407,7 +407,7 @@
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
-    <modal-dialog id="PopupModal-email" data-default="open" data-delay="3000" data-success="{{ form.posted_successfully? }}" data-session-key="newsletterAppeared" class="modal-email-dialog modal--mobile-friendly modal--square ">
+    <modal-dialog id="PopupModal-email" data-default="open" data-delay="3000" data-session-key="newsletterAppeared" class="modal-email-dialog modal--mobile-friendly modal--square ">
       <div
         class="modal__inner"
         role="dialog"
@@ -448,6 +448,7 @@
                         if (`{{ form.posted_successfully? }}`) {
                           const modal = document.querySelector('#PopupModal-email');
                           console.log('modal', modal)
+                          if (modal) modal.show()
                         }
                         </script>
                       {%- if form.posted_successfully? -%}
