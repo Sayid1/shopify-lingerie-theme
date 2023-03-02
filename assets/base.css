@@ -2306,6 +2306,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
   padding: 10px 0;
   background: rgb(var(--color-foreground));
   font-size: calc(18px*.85);
+  overflow: hidden;
 }
 
 .announcement-text {

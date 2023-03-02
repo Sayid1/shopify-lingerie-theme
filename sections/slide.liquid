@@ -1,0 +1,214 @@
+<style>
+  @keyframes rise-up{
+    0%{
+      opacity:1;
+      transform:translateY(120%);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0%);
+    }
+  }
+
+  @keyframes rise-up-out{
+    0%{
+      opacity:1;
+      transform:translateY(0%);
+    }
+    to{
+      opacity:1;
+      transform:translateY(-120%);
+    }
+  }
+
+  @keyframes fade-in{
+    0%{
+      opacity:0;
+    }
+    to{
+      opacity:1;
+    }
+  }
+  
+  @keyframes fade-out{
+    0%{
+      opacity:1;
+    }
+    to{
+      opacity:0;
+    }
+  }
+
+ .hero__title {
+    font-size: 35.0px;
+    color: #fff;
+}
+
+.hero__link {
+    margin-top: 7.5px;
+}
+.hero__link .btn {
+  opacity: 0;
+  transition: none;
+}
+@media only screen and (min-width: 769px) {
+  .hero__title {
+    font-size: 70px;
+  }
+  .hero__link {
+      margin-top: 15px;
+  }
+}
+
+  .slideshow {
+    overflow: hidden;
+    position: relative;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 112px);
+    object-fit: cover;
+  }
+
+  .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+  }
+
+  .autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+  }
+  .text__wrap {
+    opacity: 0;
+    position: absolute;
+    background: rgba(0,0,0,.6);
+    padding: 4rem 3.5rem;
+  }
+  .animation-cropper {
+    opacity: 0;
+    overflow: hidden;
+
+    transform: translateY(15px);
+    transition: none;
+  }
+  .animation-contents {
+  }
+  .swiper-slide-active .animation-cropper {
+    animation: .8s cubic-bezier(.26,.54,.32,1) .8s forwards;
+    animation-name: rise-up;
+  }
+  .swiper-slide-active .hero__link .btn {
+    animation: fade-in 2s ease 1.8s forwards;
+    }
+    .swiper-slide-active .text__wrap {
+  animation: fade-in 1s ease forwards;
+
+}
+
+</style>
+<div class="slideshow">
+  <div class="wrap">
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/banner2.jpg?v=1677726598" alt="">
+      <div class="text__wrap">
+        <h2 class="h1 hero__title">
+          <div class="animation-cropper">
+            <div class="animation-contents">
+              SUMMER VIBES
+            </div>
+          </div>
+        </h2>
+        <div class="hero__link">
+          <a href="" class="btn">SHOP ALL</a>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <img src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/banner1.jpg?v=1677726594" alt="">
+      <div class="text__wrap">
+        <h2 class="h1 hero__title">
+          <div class="animation-cropper">
+            <div class="animation-contents">
+              STRING STYLE
+            </div>
+          </div>
+        </h2>
+        <div class="hero__link">
+          <a href="" class="btn">SHOP ALL</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="autoplay-progress">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span>
+    </div>
+</div>
+</div>
+</div>
+<script>
+  const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+  var swiper = new Swiper(".swiper-container", {
+      spaceBetween: 30,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      on: {
+        slideChange(swiper) {
+          console.log(swiper)
+        },
+        autoplayTimeLeft(s, time, progress) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      }
+    });
+</script>

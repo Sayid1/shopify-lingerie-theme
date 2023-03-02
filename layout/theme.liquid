@@ -10,7 +10,10 @@
       rel="preconnect"
       href="https://cdn.shopify.com"
       crossorigin>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
 
     {%- if settings.favicon != blank -%}
       <link
@@ -380,7 +383,9 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
   </head>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
+
 
   <body class="gradient">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
