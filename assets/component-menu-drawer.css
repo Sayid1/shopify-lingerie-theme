@@ -120,11 +120,12 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .js .menu-drawer__menu li {
-  margin-bottom: 0.2rem;
+  margin: 0 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 .menu-drawer__menu-item {
-  padding: 1.4rem 3.2rem;
+  padding: 1.4rem 0;
   text-decoration: none;
   font-size: 1.8rem;
 }

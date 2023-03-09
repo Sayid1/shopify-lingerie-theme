@@ -1,0 +1,257 @@
+{% style %}
+  .testimonials-template--{{ section.id }}__testimonials {
+    background-color: #f9f9f9;
+    color: #1c1d1d;
+  }
+  .testimonials-section {
+    padding: 25.5px 0;
+  }
+
+    .section-header {
+        margin-bottom: 30px;
+    }
+
+
+.bk-slider {
+  position: relative;
+  /* width: 90vw; */
+  height: auto;
+  padding: 50px 20px;
+  overflow: hidden;
+}
+
+.testimonials-swiper {
+  width: 100%;
+  height: 200px;
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  
+}
+.swiper-button-prev, .swiper-button-next {
+    color: rgba(var(--color-foreground));
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  background: white;
+  transition: all .3s ease;
+}
+.swiper-slide-active {
+    color:#fff;
+    transform: scale(1.2) !important;
+    box-shadow: 0 10px 25px #0000001a;
+    z-index: 2
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(var(--color-foreground)) !important;
+    transform: scale(1.3) !important;
+}
+
+@media only screen and (min-width: 769px) {
+    .testimonials-section {
+        padding: 75px 0;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .swiper-slide-active {
+        transform: scale(1) !important;
+    }
+  }
+{% endstyle %}
+<div class="testimonials-section testimonials-template--{{ section.id }}__testimonials text-center">
+    <div class="page-width">
+        <div class="section-header">
+            <h2 class="center">Hear it from them</h2>
+        </div>
+    </div>
+    {% style %}
+        .comment-container {
+            display: flex;
+            width: 100%;
+            color: rgba(var(--color-foreground));
+            height: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+        }
+        .comment-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .stars {
+            width: 108px;
+            height: 20px;
+        }
+    {% endstyle %}
+    
+        <div class="bk-slider">
+            <div class="testimonials-swiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    
+                    <div class="comment-container">
+                        <div style="display: flex; position: relative;flex:1;">
+                            <div style="position: absolute;
+                            width: 100%;
+                            height: 100%;">
+                                <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                                </div>
+                                </div>
+                                <div style="width: 50%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: space-between;">
+                                <div style="display: flex;align-items: center;">
+                                    <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                    <p style="margin-left: 12px;">Rachel F.1</p>
+                            </div>
+                            <div style="font-size: 12px;max-height: 87px;
+                            overflow: hidden;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. Wasn't hard to put on like I anticipated. Super stretchy. They may not last a long time but the 2 I've tried I've worn several times and they made it through the wash (in a delicates bag of course). I wore them under clothes and the areas they showed, gave cool design to my outfit. Definitely get these! </div>  
+                            <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide"><div class="comment-container">
+                    <div style="display: flex; position: relative;flex:1;">
+                        <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;">
+                            <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                            </div>
+                            </div>
+                            <div style="width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;">
+                            <div style="display: flex;align-items: center;">
+                                <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                <p style="margin-left: 12px;">Rachel F.2</p>
+                        </div>
+                        <div style="font-size: 12px;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. </div>  
+                        <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                    </div>
+                </div></div>
+                <div class="swiper-slide"><div class="comment-container">
+                    <div style="display: flex; position: relative;flex:1;">
+                        <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;">
+                            <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                            </div>
+                            </div>
+                            <div style="width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;">
+                            <div style="display: flex;align-items: center;">
+                                <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                <p style="margin-left: 12px;">Rachel F.3</p>
+                        </div>
+                        <div style="font-size: 12px;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. </div>  
+                        <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                    </div>
+                </div></div>
+                <div class="swiper-slide"><div class="comment-container">
+                    <div style="display: flex; position: relative;flex:1;">
+                        <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;">
+                            <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                            </div>
+                            </div>
+                            <div style="width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;">
+                            <div style="display: flex;align-items: center;">
+                                <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                <p style="margin-left: 12px;">Rachel F.4</p>
+                        </div>
+                        <div style="font-size: 12px;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. </div>  
+                        <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                    </div>
+                </div></div>
+                <div class="swiper-slide"><div class="comment-container">
+                    <div style="display: flex; position: relative;flex:1;">
+                        <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;">
+                            <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                            </div>
+                            </div>
+                            <div style="width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;">
+                            <div style="display: flex;align-items: center;">
+                                <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                <p style="margin-left: 12px;">Rachel F.5</p>
+                        </div>
+                        <div style="font-size: 12px;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. </div>  
+                        <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                    </div>
+                </div></div>
+                <div class="swiper-slide"><div class="comment-container">
+                    <div style="display: flex; position: relative;flex:1;">
+                        <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;">
+                            <img class="comment-img" src="https://cdn.shopify.com/s/files/1/0725/2846/2119/files/comment1.jpg?v=1677825642" alt="">
+                            </div>
+                            </div>
+                            <div style="width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;">
+                            <div style="display: flex;align-items: center;">
+                                <img class="user-img" src="https://user-images.trustpilot.com/64001dd83fcbd5001202a440/64x64.png" alt="">
+                                <p style="margin-left: 12px;">Rachel F.6</p>
+                        </div>
+                        <div style="font-size: 12px;">I've only tried 2/6 of these so far, but I love them, made me feel super sexy. </div>  
+                        <img class="stars" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" alt="">
+                    </div>
+                </div></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    <script>
+        var swiper = new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            loop: true,
+            slideToClickedSlide: true,
+            breakpoints: {
+                768:{
+                    centeredSlides: true,
+                    spaceBetween: 30,
+                    slidesPerView: 3,
+                }
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+
+    </script>
+</div>

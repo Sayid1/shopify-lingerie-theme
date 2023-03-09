@@ -1,6 +1,6 @@
 
 <style>
-  .slider {
+  .announcement-slider {
     background: rgb(var(--color-foreground));
   }
   .announcement-item {
@@ -14,7 +14,7 @@
 </style>
 <div class="announcement-bar">
   <div class="page-width">
-    <div class="slider">
+    <div class="announcement-slider">
       <div class="swiper-wrapper">
         <div class="swiper-slide announcement-item">
           <span class="announcement-text">Free shipping</span> <span class="announcement-link-text">On all orders over $100</span>
@@ -30,7 +30,7 @@
   </div>
 </div>
 <script>
-  new Swiper(".slider", {
+  new Swiper(".announcement-slider", {
       speed: 1000,
       autoplay: {
         delay: 3000,

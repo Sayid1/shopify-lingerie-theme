@@ -91,8 +91,8 @@
 
 {%- style -%}
   .header {
-    /* padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px; */
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   .section-header {
@@ -108,8 +108,8 @@
 
   @media screen and (min-width: 990px) {
     .header {
-      /* padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px; */
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
@@ -153,9 +153,8 @@
               <div class="menu-drawer__navigation-container">
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-                    <li class="appear-animation appear-delay-1 list-menu__item menu-drawer__menu-item">Shop</li>
                     {%- for link in section.settings.menu.links -%}
-                      <li class="appear-animation appear-delay-{{ forloop.index | plus: 1 }}">
+                      <li class="appear-animation appear-delay-{{ forloop.index0 | plus: 1 }}">
                         {%- if link.links != blank -%}
                           <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                             <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
@@ -213,6 +212,25 @@
                         {%- endif -%}
                       </li>
                     {%- endfor -%}
+                    <li class="appear-animation appear-delay-{{ section.settings.menu.links.size | plus: 1 }}">
+                      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                        Login
+                        <span class="visually-hidden">
+                          {%- liquid
+                            if customer
+                              echo 'customer.account_fallback' | t
+                            else
+                              echo 'customer.log_in' | t
+                            endif
+                          -%}
+                        </span>
+                      </a>
+                    </li>
+                    <li class="appear-animation appear-delay-{{ section.settings.menu.links.size | plus: 2 }}">
+                      <a class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>About</a></li>
+                    <li class="appear-animation appear-delay-{{ section.settings.menu.links.size | plus: 3 }}">
+                      <a class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>Conact</a>
+                    </li>
                   </ul>
                 </nav>
                 <div class="menu-drawer__utility-links">
@@ -393,101 +411,34 @@
         </details>
       </details-modal>
     {%- endif -%}
-
-    {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-              {{ settings.logo | image_url: width: 500 | image_tag:
-                class: 'header__heading-logo motion-reduce',
-                widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                height: logo_height,
-                width: settings.logo_width,
-                alt: logo_alt
-              }}
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
+    
+    {%- if section.settings.logo_position  != 'middle-center' -%}
+        {%- if request.page_type == 'index' -%}
+          <h1 class="header__heading">
+        {%- endif -%}
+            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+              {%- if settings.logo != blank -%}
+                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+                {{ settings.logo | image_url: width: 500 | image_tag:
+                  class: 'header__heading-logo motion-reduce',
+                  widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                  height: logo_height,
+                  width: settings.logo_width,
+                  alt: logo_alt
+                }}
+              {%- else -%}
+                <span class="h2">{{ shop.name }}</span>
+              {%- endif -%}
+            </a>
+        {%- if request.page_type == 'index' -%}
+          </h1>
+        {%- endif -%}
     {%- endif -%}
     {%- if section.settings.menu != blank -%}
       {%- if section.settings.menu_type_desktop == 'dropdown' -%}
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
-            <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown site-nav--is-megamenu"{% if link.current %} aria-current="page"{% endif %}>
-              <a href="#" class="header__menu-item link link--text focus-inset">
-                <span class="header__menu-item-text">Shop</span>
-              </a>
-              <div class="site-nav__dropdown megamenu left">
-                <div class="page-width">
-                  <div class="grid grid--center">
-                    <div class="grid__item appear-animation appear-delay-1">
-                      <div class="h5">
-                        <span class="site-nav__dropdown-link site-nav__dropdown-link--top-level">tops</span>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Long sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">3/4 sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Half sleeve</a>
-                      </div>
-                    </div>
-                    <div class="grid__item appear-animation appear-delay-2">
-                      <div class="h5">
-                        <span class="site-nav__dropdown-link site-nav__dropdown-link--top-level">tops</span>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Long sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">3/4 sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Half sleeve</a>
-                      </div>
-                    </div>
-                    <div class="grid__item appear-animation appear-delay-3">
-                      <div class="h5">
-                        <span class="site-nav__dropdown-link site-nav__dropdown-link--top-level">tops</span>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Long sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">3/4 sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Half sleeve</a>
-                      </div>
-                    </div>
-                    <div class="grid__item appear-animation appear-delay-4">
-                      <div class="h5">
-                        <span class="site-nav__dropdown-link site-nav__dropdown-link--top-level">tops</span>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Long sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">3/4 sleeve</a>
-                      </div>
-                      <div>
-                        <a href="#" class="site-nav__dropdown-link">Half sleeve</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
             {%- for link in section.settings.menu.links -%}
               <li class="site-nav__item site-nav__expanded-item">
                 {%- if link.links != blank -%}
@@ -691,7 +642,7 @@
           </div>
         </details>
       </details-modal>
-
+      
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
           {% render 'icon-account' %}
@@ -742,11 +693,7 @@
     }
 
     connectedCallback() {
-<<<<<<< HEAD
       console.log('666')
-=======
-      console.log('444')
->>>>>>> 1a1daf0 (弹窗订阅)
       this.header = document.querySelector('.section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
