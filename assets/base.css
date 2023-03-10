@@ -3175,11 +3175,10 @@ details-disclosure > details {
   letter-spacing: .3em;
 }
 
-.grid {
+/* .grid {
   list-style: none;
   padding: 0;
   margin: 0 0 0 -22px;
-  /* text-align: center; */
   justify-content: center
 }
 
@@ -3195,7 +3194,7 @@ details-disclosure > details {
   display: inline-block;
   vertical-align: top;
   text-align: left;
-}
+} */
 
 .megamenu .grid__item {
   width: 20%;
