@@ -442,11 +442,11 @@ html.no-js .no-js-hidden {
   
   @media only screen and (min-width:769px){
     .h1,h1{
-      font-size:var(--typeHeaderSize);
+      font-size:calc(var(--typeHeaderSize)*.85);
     }
   
     .h2,h2{
-      font-size:calc(var(--typeHeaderSize)*0.85);
+      font-size:calc(var(--typeHeaderSize)*0.73);
     }
   
     .h3,h3{
