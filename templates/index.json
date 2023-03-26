@@ -1,7 +1,9 @@
 {
   "sections": {
     "slide": {
-      "type": "slide"
+      "type": "slide",
+      "settings": {
+      }
     },
     "rich_text": {
       "type": "rich-text",
@@ -41,7 +43,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "首页第一行促销商品2个",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
